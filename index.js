@@ -100,6 +100,7 @@ module.exports = function (options) {
 
   function saveState(win) {
     // Update window state only if it was provided
+    win = win || winRef;
     if (win) {
       updateState(win);
     }
@@ -116,11 +117,11 @@ module.exports = function (options) {
   function stateChangeHandler() {
     // Handles both 'resize' and 'move'
     clearTimeout(stateChangeTimer);
-    stateChangeTimer = setTimeout(updateState, eventHandlingDelay);
+    stateChangeTimer = setTimeout(saveState, eventHandlingDelay);
   }
 
   function closeHandler() {
-    updateState();
+    saveState();
   }
 
   function closedHandler() {
