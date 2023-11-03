@@ -99,7 +99,7 @@ module.exports = function (options) {
   }
 
   function saveState(win) {
-    // Update window state only if it was provided
+    // Update window state only if it was provided-zzg
     win = win || winRef;
     if (win) {
       updateState(win);
